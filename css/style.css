@@ -6,6 +6,10 @@ body {
     font-family: 'Blinker', sans-serif;
     background-color: rgb(218, 218, 218);
 }
+.row {
+    width: 80%;
+    margin: 0 auto;
+}
 .txt-box {
     position: absolute;
     text-align: center;
@@ -64,4 +68,9 @@ label {
 .btn:active,
 .main-btn:visited{
     color: blue;
+}
+.logo {
+    font-size: 30px;
+    margin-top: 10px;
+    display: inline-block;
 }

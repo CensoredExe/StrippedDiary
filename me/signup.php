@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include_once "../includes/include.php";
+    if(isset($_SESSION['user_id'])){
+        echo "<script>window.location = 'index.php'</script>";
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +28,6 @@
             <button class="form-submit" name="submit">Signup</button>
             </form>
             <?php
-            include_once "../includes/include.php";
             if(isset($_POST['submit'])){
                 $user_name = strip_tags(mysqli_real_escape_string($conn, $_POST['user_name']));
                 $user_email = mysqli_real_escape_string($conn, $_POST['user_email']);

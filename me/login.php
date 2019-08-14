@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include_once "../includes/include.php";
+    if(isset($_SESSION['user_id'])){
+        echo "<script>window.location = 'index.php'</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,17 +25,46 @@
             <input id="user_password" name="user_password" type="password" class="form-input" placeholder="********" required ><br>
             <button class="form-submit" name="submit">Signup</button>
             </form>
+            
+            <a class="btn" href="signup.php">Dont have an account?</a><br>
+            <a class="btn" href="../index.php">Go back</a>
             <?php
+            
             if(isset($_POST['submit'])){
+                $user_email = mysqli_real_escape_string($conn, $_POST['user_email']);
+                $user_password = $_POST['user_password'];
                 if(empty($user_email) || empty($user_password)){
                     echo "<br>Empty fields, please fix.";
                     exit();
                 }
-                
+                if(!filter_var($user_email, FILTER_VALIDATE_EMAIL)){
+                    echo "<br>Error, incorrect email";
+                    
+                }else {
+                    $sql = "SELECT * FROM users WHERE user_email = '$user_email'";
+                    $result = mysqli_query($conn, $sql);
+                    if(mysqli_num_rows($result) == 1){
+                        while($row = mysqli_fetch_assoc($result)){
+                            if(password_verify($user_password, $row['user_password'])){
+                                $_SESSION['user_id'] = $row['user_id'];
+                                $_SESSION['user_name'] = $row['user_name'];
+                                $_SESSION['user_email'] = $row['user_email'];
+                                $_SESSION['user_bio'] = $row['user_bio'];
+                                echo "<script>window.location = 'index.php'</script>";
+                            }else {
+                                echo "<br>Wrong password";
+                                
+                            }
+                        }
+                    }else {
+                        echo "<br>Account doesnt exist";
+                        
+                    }
+                }
+
+
             }
             ?>
-            <a class="btn" href="signup.php">Dont have an account?</a><br>
-            <a class="btn" href="../index.php">Go back</a>
         </div>
         <footer>
             <p>&copy; StrippedDiary.me</p>

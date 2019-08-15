@@ -81,7 +81,7 @@
             </div> -->
 
             <?php 
-				echo "<center>";
+				echo "<center style='margin-top:40px;'>";
 				for($i=1;$i<=$totalpages;$i++){
 					?>
 					<a class="btn" href="?p=<?php echo $i; ?>"><?php echo $i; ?></a>&nbsp;

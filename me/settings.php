@@ -40,12 +40,49 @@
                 <label for="user_email" class="form-label">User email (Login with this)</label><br>
                 <input type="email" class="form-input" name="user_email" id="user_email" value="<?php echo $_SESSION['user_email']; ?>" placeholder="User email"><br>
                 <label for="user_bio" class="form-label">User bio</label><br>
-                <textarea class="form-textarea-small form-input"><?php echo $_SESSION['user_bio']; ?></textarea><br>
+                <textarea class="form-textarea-small form-input" name="user_bio"><?php echo $_SESSION['user_bio']; ?></textarea><br>
                 <button type="submit" name="submit" class="form-submit">Change</button>
             </form>
             <?php
             if(isset($_POST['submit'])){
                 $user_name = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['user_name']));
+                $user_email = mysqli_real_escape_string($conn, $_POST['user_email']);
+                $user_bio = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['user_bio']));
+                if(empty($user_name) || empty($user_email) || empty($user_bio)){
+                    echo "Empty fields, please fix";
+                }else {
+                    if(!filter_var($user_email, FILTER_VALIDATE_EMAIL)){
+                        echo "Email is incorrect";
+                    }else {
+                        $id= $_SESSION['user_id'];
+                        $sql = "SELECT * FROM users WHERE user_id='$id'";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            if($user_email == $row['user_email']){
+                                // Old email
+                                $sql = "UPDATE users SET user_name='$user_name', user_email ='$user_email', user_bio='$user_bio' WHERE user_id='$id'";
+                            }else{
+                                // New email
+                                $sql = "SELECT * FROM users WHERE user_email='$user_email'";
+                                $result = mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    echo "Error, email in use";
+                                }else {
+                                    $sql = "UPDATE users SET user_name='$user_name', user_email ='$user_email', user_bio='$user_bio' WHERE user_id='$id'";
+                                }
+                                
+                            }
+                            if(mysqli_query($conn, $sql)){
+                                $_SESSION['user_name'] = $user_name;
+                                $_SESSION['user_email'] = $user_email;
+                                $_SESSION['user_bio'] = $user_bio;
+                                header("Location: settings.php");
+                            }else {
+                                echo "Error";
+                            }
+                        }
+                    }
+                }
             }
             ?>
         <a class="btn" href="password.php">Change password</a><br>

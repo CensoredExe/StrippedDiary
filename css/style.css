@@ -66,11 +66,42 @@ label {
     color: blue;
 }
 .btn:active,
-.main-btn:visited{
+.btn:visited{
     color: blue;
 }
 .logo {
     font-size: 30px;
     margin-top: 10px;
     display: inline-block;
+}
+.form-textarea {
+    height:200px;
+    resize:none;
+}
+.item-hold {
+    float: right;
+    margin-top: 30px;
+}
+.nav-item {
+    margin-left: 10px;
+}
+@media(max-width: 600px){
+    .item-hold {
+        width: 100%;
+        float:none;
+    }
+    .nav-item {
+        display: block;
+        margin: none;
+        margin-top: 10px;
+    }
+    .form-input {
+        width: 100%;
+    }
+    .row {
+        width: 95%;
+    }
+    .form-hold {
+        width: 95%;
+    }
 }

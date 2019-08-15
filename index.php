@@ -40,7 +40,7 @@
             $total = $num_posts + $deleted_posts;
             $avg = ceil($total / $num_users);
             ?><br>
-            <p><?php echo $num_users; ?> users | <?php echo $num_posts; ?> posts</p>
+            <p><?php echo $num_users; ?> users | <?php echo $total; ?> posts</p>
             <p>On average, each user posts <?php echo $avg; ?> times</p>
             
         </div>

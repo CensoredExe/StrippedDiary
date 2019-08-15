@@ -78,6 +78,10 @@ label {
     height:200px;
     resize:none;
 }
+.form-textarea-small {
+    height: 75px;
+    resize: none;
+}
 .item-hold {
     float: right;
     margin-top: 30px;

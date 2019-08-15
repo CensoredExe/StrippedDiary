@@ -34,9 +34,10 @@
             $sql = "SELECT * FROM posts";
             $result = mysqli_query($conn, $sql);
             $num_posts = mysqli_num_rows($result);
+            $avg = ceil($num_posts / $num_users);
             ?><br>
             <p><?php echo $num_users; ?> users | <?php echo $num_posts; ?> posts</p>
-            
+            <p>On average, each user posts <?php echo $avg; ?> times</p>
         </div>
         <footer>
             <p>&copy; StrippedDiary.me</p>

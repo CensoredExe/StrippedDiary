@@ -85,6 +85,19 @@ label {
 .nav-item {
     margin-left: 10px;
 }
+.post-hold {
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.925);
+    padding: 20px;
+    border-radius: 2px;
+    margin-top: 30px;
+}
+.post-title {
+    font-weight: 300;
+}
+.post-content {
+    font-size: 24px;
+}
 @media(max-width: 600px){
     .item-hold {
         width: 100%;

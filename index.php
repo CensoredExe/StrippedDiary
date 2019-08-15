@@ -25,7 +25,17 @@
                 <?php
             }
             ?>
-            
+            <br>
+            <?php
+            include_once "includes/include.php";
+            $sql = "SELECT * FROM users";
+            $result = mysqli_query($conn, $sql);
+            $num_users = mysqli_num_rows($result);
+            $sql = "SELECT * FROM posts";
+            $result = mysqli_query($conn, $sql);
+            $num_posts = mysqli_num_rows($result);
+            ?><br>
+            <p><?php echo $num_users; ?> users | <?php echo $num_posts; ?> posts</p>
             
         </div>
         <footer>

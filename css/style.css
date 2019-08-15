@@ -91,6 +91,7 @@ label {
     padding: 20px;
     border-radius: 2px;
     margin-top: 30px;
+    overflow:hidden;
 }
 .post-title {
     font-weight: 300;
@@ -98,10 +99,25 @@ label {
 .post-content {
     font-size: 24px;
 }
+.full-post-title {
+    font-size: 55px;
+    font-weight: 300;
+}
+.full-post-content {
+    font-weight: 300;
+    font-size: 26px;
+}
 @media(max-width: 600px){
     .item-hold {
         width: 100%;
         float:none;
+    }
+    .post-content {
+        font-size: 22px;
+    }
+    .post-hold {
+        width: 80%;
+        margin: 10px auto;
     }
     .nav-item {
         display: block;

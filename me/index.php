@@ -67,7 +67,7 @@
             <p><?php echo $post_date; ?></p>
             <hr>
             <p class="post-content"><?php echo substr($post_content,0, 300);if(strlen($post_content) > 300){echo"...";} ?></p>
-            <a href="post.php?id=<?php echo $post_id; ?>">Read more</a>
+            <a class="btn" href="post.php?id=<?php echo $post_id; ?>">Read more</a>
             </div>
             <?php
         }
@@ -91,9 +91,6 @@
 			?>
         </div>
     </section>
-    <footer>
-            <p>&copy; StrippedDiary.me</p>
-            <p>An <a class="btn" href="https://github.com/censoredexe/StrippedDiary">open-source</a> project</p>
-        </footer>
+    
     </body>
 </html>

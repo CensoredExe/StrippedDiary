@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet"> 
     <title>StrippedDiary, create an account and begin writing</title>
     <link href="../css/style.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                     $result = mysqli_query($conn, $sql);
                     if(mysqli_num_rows($result) <= 0){
                         
-                        $sql = "INSERT INTO users (`user_name`, `user_email`, `user_password`, `user_role`) VALUES ('$user_name', '$user_email', '$hash', 'user');";
+                        $sql = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`, `user_role`) VALUES ('$user_name', '$user_email', '$hash', `user`);";
                         if(mysqli_query($conn, $sql)){
                             echo "<script>window.location = 'login.php?message=Account created'</script>";
                             exit();

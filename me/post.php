@@ -20,6 +20,8 @@
         <div class="row">
             <p class="logo"><a class="btn" href="index.php">StrippedDiary.me</a></p>
             <div class="item-hold">
+            <a class="nav-item btn" href="feedback.php">Feedback</a>
+
             <a class="nav-item btn" href="settings.php">Settings</a>
 
             <a class="nav-item btn" href="logout.php" >Logout</a>
@@ -64,9 +66,6 @@
         
         </div>
     </section>
-    <footer>
-            <p>&copy; StrippedDiary.me</p>
-            <p>An <a class="btn" href="https://github.com/censoredexe/StrippedDiary">open-source</a> project</p>
-        </footer>
+    
     </body>
 </html>

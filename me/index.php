@@ -34,6 +34,11 @@
             <h1 class="sub-heading" style="font-size:45px;">Dashboard</h1>
             <p>Welcome back, <?php echo $_SESSION['user_name']; ?></p>
             <p>Your bio: <?php echo $_SESSION['user_bio']; ?></p>
+            <?php
+            if($_SESSION['user_role'] == 'admin'){
+                echo "<a class='admin' href='../admin/index.php'>Hello, admin.</a>";
+            }
+            ?>
             <br><a href="addpost.php" class="btn">Write a post</a>
         </div>
         <div class="row">

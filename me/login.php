@@ -51,6 +51,7 @@
                                 $_SESSION['user_name'] = $row['user_name'];
                                 $_SESSION['user_email'] = $row['user_email'];
                                 $_SESSION['user_bio'] = $row['user_bio'];
+                                $_SESSION['user_role'] = $row['user_role'];
                                 echo "<script>window.location = 'index.php'</script>";
                             }else {
                                 echo "<br>Wrong password";

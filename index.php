@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +18,6 @@
             <p class="sub-heading">A visually stripped diary</p>
             <p>An easy to use diary thats completely anonymous and private.<br>Ideal for writing about your progress, keeping notes or just as a diary.</p>
             <?php
-            session_start();
             if(isset($_SESSION['user_id'])){
                 ?>
                 <a href="me/index.php" class="main-btn">DASHBOARD</a>

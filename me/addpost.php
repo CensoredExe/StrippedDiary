@@ -46,7 +46,8 @@
             <?php
             if(isset($_POST['submit'])){
                 $post_title = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['post_title']));
-                $post_content = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['post_content']));
+                $post_content = htmlspecialchars($_POST['post_content']);
+                
                 date_default_timezone_set("Europe/London");
                 $post_date = date("d/m/Y H:i:s");
                 $post_author = $_SESSION['user_id'];

@@ -24,7 +24,7 @@
             <input id="user_email" name="user_email" type="email" class="form-input" placeholder="Your prefered email" required ><br>
             <label for="user_password">Your password</label><br>
             <input id="user_password" name="user_password" type="password" class="form-input" placeholder="********" required ><br>
-            <button class="form-submit" name="submit">Signup</button>
+            <button class="form-submit" name="submit">Login</button>
             </form>
             
             <a class="btn" href="signup.php">Dont have an account?</a><br>
